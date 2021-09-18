@@ -12,6 +12,9 @@
 
 body {
   font-family: var(--ff-heading);
+  max-width: 60em;
+
+  margin: 0 auto;
 }
 
 header h1 {
