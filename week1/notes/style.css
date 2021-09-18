@@ -1,0 +1,9 @@
+#story_editor {
+  width: 50rem;
+  height: calc(250rem / 16);
+  background: lightblue;
+}
+
+.btn {
+  margin: 0.8rem 0;
+}
