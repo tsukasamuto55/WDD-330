@@ -1,0 +1,34 @@
+:root {
+  --hue: 240;
+  --saturation: 100%;
+  --lightness: 25%;
+
+  --fs-base: 1rem;
+  --fs-title: 2.5rem;
+
+  --ff-body: "Lora", serif;
+  --ff-heading: "Roboto", sans-serif;
+}
+
+body {
+  font-family: var(--ff-heading);
+}
+
+header h1 {
+  background-color: hsla(var(--hue) var(--saturation) var(--lightness) / 0.5);
+  padding: 1.5rem;
+
+  font-size: var(--fs-title);
+}
+
+ol li {
+  line-height: 1.5;
+}
+
+ol a {
+  --hue: 125;
+  color: hsla(var(--hue) var(--saturation) var(--lightness));
+
+  font-family: var(--ff-body);
+  text-decoration: none;
+}
