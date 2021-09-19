@@ -1,12 +1,12 @@
-const ol = document.querySelector("ol");
+const ul = document.querySelector("ul");
 
 const links = [
   {
-    label: "Week1 work",
+    label: "Week 01",
     url: "week1/index.html",
   },
   {
-    label: "Week2 work",
+    label: "Week 02",
     url: "week2/index.html",
   },
 ];
@@ -17,5 +17,5 @@ links.forEach((link) => {
   anchor.setAttribute("href", link.url);
   anchor.innerHTML = link.label;
   li.append(anchor);
-  ol.append(li);
+  ul.append(li);
 });
