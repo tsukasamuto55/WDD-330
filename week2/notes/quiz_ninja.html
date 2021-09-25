@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Baloo+Da|Roboto");
+
+      body {
+        background: #5f1c1c;
+        font-family: "Roboto", sans-serif;
+      }
+      .dojo {
+        background: url(https://cdn.rawgit.com/alexmwalker/6acbe9040d9fe6e5e9fd758a25e1b2a5/raw/9c8131eb2ccc1e3839a5a5114cb16b5dc74daf04/dojo.svg)
+          no-repeat;
+        width: 100%;
+        height: 800px;
+        background-size: 100% auto;
+        padding-top: 10px;
+      }
+      .quiz-body {
+        background: rgba(255, 255, 255, 1);
+        margin: 150px 33%;
+        padding: 10px 20px 50px 20px;
+        -webkit-box-shadow: 4px 4px 11px 3px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 4px 4px 11px 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 4px 4px 11px 3px rgba(0, 0, 0, 0.3);
+      }
+      h1 {
+        color: #611bbd;
+        font-family: "Baloo Da", cursive;
+        font-weight: 900;
+        text-align: center;
+        font-size: 48px;
+        margin: 0;
+      }
+      button {
+        color: #ffffff;
+        background-color: #611bbd;
+        border-color: #130269;
+        border-radius: 4px;
+        margin: 0.2em 0;
+        display: block;
+        width: 100%;
+        font-size: 24px;
+      }
+      #question {
+        font-size: 24px;
+      }
+
+      #result {
+        color: #fff;
+        margin: 0.2em 0;
+        width: 100%;
+        text-align: center;
+      }
+      .correct {
+        background-color: #0c0;
+      }
+      .wrong {
+        color: #fff;
+        background-color: #c00;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="dojo">
+      <div class="quiz-body">
+        <header>
+          <h1>Quiz Ninja!</h1>
+        </header>
+      </div>
+    </section>
+    <script>
+      const quiz = [
+        ["What is Superman's real name?", "Clark Kent"],
+        ["What is Wonderwoman's real name?", "Dianna Prince"],
+        ["What is Batman's real name?", "Bruce Wayne"],
+      ];
+
+      function startGame(quiz) {
+        let score = 0;
+
+        for (const [question, answer] of quiz) {
+          const response = prompt(question);
+          compare(response, answer);
+        }
+
+        gameOver();
+
+        function compare(response, answer) {
+          if (response.toLowerCase() === answer.toLowerCase()) {
+            alert("You are correct");
+            score++;
+          } else {
+            alert(`Your response was wrong. Correct answer is ${answer}.`);
+          }
+        }
+
+        function gameOver() {
+          alert(`Game Over, you scored ${score} point${score !== 1 ? "s" : ""}.`);
+        }
+      }
+
+      startGame(quiz);
+    </script>
+  </body>
+</html>

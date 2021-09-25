@@ -1,4 +1,5 @@
 const ul = document.querySelector("ul");
+const html = document.querySelector("html");
 
 const links = [
   {

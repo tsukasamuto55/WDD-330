@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes / Exercises</title>
+  </head>
+  <body>
+    <h1>Eloquent JavasScript</h1>
+    <h2>Chapter 2 Program Structure</h2>
+    <ul>
+      <li>
+        Binding (Variable)name may include dollar signs ($) or underscores (_) but no
+        other punctuation or special characters. `
+      </li>
+      <li>Executing a function is called invoking, calling, or applying it.</li>
+      <li>
+        The braces can be used to group any number of statements into a single statement,
+        called a block.
+      </li>
+      <li>
+        A a do loop always executes its body at least once, and it starts testing whether
+        it should stop only after that first execution.
+      </li>
+      <li>
+        There is a special statement called break that has the effect of immediately
+        jumping out of the enclosing loop.
+      </li>
+      <li>
+        The continue keyword is similar to break, in that it influences the progress of a
+        loop. When continue is encountered in a loop body, control jumps out of the body
+        and continues with the loop’s next iteration.
+      </li>
+    </ul>
+
+    <h2>Chapter 3 Functions</h2>
+    <ul>
+      <li>
+        Each local scope can also see all the local scopes that contain it, and all scopes
+        can see the global scope. This approach to binding visibility is called lexical
+        scoping.
+      </li>
+      <li>
+        When the function keyword is used at the start of a statement, it is called
+        function declaration.
+      </li>
+      <li>
+        A pure function is a specific kind of value-producing function that not only has
+        no side effects but also doesn’t rely on side effects from other code—for example,
+        it doesn’t read global bindings whose value might change.
+      </li>
+    </ul>
+    <h2>Chapter 4 Data Structures: Object and Arrays</h2>
+    <ul>
+      <li>
+        When using square brackets, the expression between the brackets is evaluated to
+        get the property name. Whereas value.x fetches the property of value named “x”,
+        value[x] tries to evaluate the expression x and uses the result, converted to a
+        string, as the property name.
+      </li>
+      <li>
+        The binary in operator, when applied to a string and an object, tells you whether
+        that object has a property with that name.
+      </li>
+      <li>
+        There’s an Object.assign function that copies all properties from one object into
+        another. It could over write the initial value of the same key.
+      </li>
+      <li>
+        The types of values discussed in earlier chapters, such as numbers, strings, and
+        Booleans, are all immutable—it is impossible to change values of those types.
+      </li>
+      <li>
+        Correlation is a measure of dependence between statistical variables. Correlation
+        between variables is usually expressed as a value that ranges from -1 to 1. Zero
+        correlation means the variables are not related. Negative one also means that the
+        variables are perfectly related but that they are opposites
+      </li>
+      <li>
+        Arrays have an includes method that checks whether a given value exists in the
+        array.
+      </li>
+      <li>
+        array.push() and array.pop(), which add and remove elements at the end of an
+        array, earlier in this chapter. The corresponding methods for adding and removing
+        things at the start of an array are called array.unshift() and array.shift().
+      </li>
+      <li>
+        Both indexOf and lastIndexOf take an optional second argument that indicates where
+        to start searching.
+      </li>
+      <li>
+        The concat method can be used to glue arrays together to create a new array,
+        similar to what the + operator does for strings.
+      </li>
+      <li>
+        One difference is that a string’s indexOf can search for a string containing more
+        than one character, whereas the corresponding array method looks only for a single
+        element.
+      </li>
+      <li>
+        The trim method removes whitespace (spaces, newlines, tabs, and similar
+        characters) from the start and end of a string.
+      </li>
+      <li>
+        The zeroPad function from the previous chapter also exists as a method. It is
+        called padStart and takes the desired length and padding character as arguments.
+      </li>
+      A string can be repeated with the repeat method, which creates a new string
+      containing multiple copies of the original string, glued together.
+    </ul>
+    <h2>Coding practice</h2>
+    <ul>
+      <li><a href="fizz_buzz.html">Fizz Buzz</a></li>
+      <li><a href="bean_counting.html">Bean Counting</a></li>
+      <li><a href="reverse_array.html">Reversing an Array</a></li>
+      <li><a href="quiz_ninja.html">Quiz Ninja Project</a></li>
+    </ul>
+  </body>
+</html>

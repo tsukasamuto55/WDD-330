@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BYU-I WDD 330 Portfolio Page</title>
 
-    <link rel="stylesheet" href="style copy.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,8 +14,11 @@
       rel="stylesheet"
     />
     <script src="js/main.js" defer></script>
+    <script src="js/toggleBtn.js" defer></script>
+    <script src="js/date.js" defer></script>
   </head>
   <body>
+    <div class="dark-btn">Dark Mode</div>
     <header>
       <section class="intro">
         <h1>Hello, my name is Tsukasa Muto</h1>
@@ -27,5 +30,13 @@
       <h2>Block 1</h2>
       <ul></ul>
     </section>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Tsukasa Muto | WDD 330</div>
+      <p>
+        Web Design inspired by
+        <a href="https://www.youtube.com/watch?v=w1nhwUGsG6M">Kevin Powell</a>
+      </p>
+    </footer>
   </body>
 </html>

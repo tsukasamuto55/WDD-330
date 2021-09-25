@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fizz Buzz</title>
+  </head>
+  <body>
+    <label for="">Number: <input type="text" placeholder="ex. 10" /></label>
+    <button>FIZZBUZZ</button>
+    <div class="output"></div>
+
+    <script>
+      const output = document.querySelector(".output");
+      const userInput = document.querySelector("input");
+      const btn = document.querySelector("button");
+
+      function fizzBuzz(number) {
+        for (let i = 1; i <= number; i++) {
+          if (i % 15 === 0) render("FizzBuzz");
+          else if (i % 5 === 0) render("Buzz");
+          else if (i % 3 === 0) render("Fizz");
+          else render(i);
+        }
+        console.log(output);
+        return output.innerText.slice(output.length - 1);
+      }
+
+      btn.addEventListener("click", () => {
+        if (output.hasChildNodes()) output.innerText = "";
+
+        fizzBuzz(userInput.value);
+      });
+
+      function render(text) {
+        let span = document.createElement("span");
+        span.innerText = text + ", ";
+        output.append(span);
+      }
+    </script>
+  </body>
+</html>
