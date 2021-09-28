@@ -1,0 +1,179 @@
+:root {
+  --hue: 240;
+  --saturation: 100%;
+  --lightness: 25%;
+
+  --fs-base: 1rem;
+  --fs-title: 3rem;
+
+  --ff-body: "Lora", serif;
+  --ff-heading: "Source Code Pro", monospace;
+
+  --max-width: 70rem;
+
+  --margin-top: 2.5rem;
+  --margin-bottom: 3em;
+
+  --gradient-speed: 8s;
+  --bg-gradient: linear-gradient(90deg, rgba(225, 50, 50, 1), rgba(20, 22, 255, 1));
+}
+
+.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.dark-btn {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+
+  /* margin: 5em; */
+  padding: 1em;
+  border-radius: 100px;
+  background: #000;
+  color: #fff;
+
+  font-size: 1rem;
+
+  transition: transform 0.3s ease;
+}
+
+.dark-btn::before,
+.dark-btn::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+
+  background: #000;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  transition: transform 0.3s ease;
+}
+
+.dark-btn:hover {
+  cursor: pointer;
+
+  transform: translate(-14px, -14px);
+}
+
+.dark-btn:hover::after {
+  transform: translate(7px, 7px);
+}
+
+.dark-btn:hover::before {
+  transform: translate(14px, 14px);
+}
+
+.dark-btn:active {
+  transform: translate(-12px, -12px);
+}
+
+body {
+  --hue: 40;
+  --saturation: 35.29%;
+  --lightness: 93.33%;
+  background-color: hsla(var(--hue) var(--saturation) var(--lightness));
+  margin: 0;
+}
+
+main,
+header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-family: var(--ff-heading);
+}
+
+.title {
+  font-size: clamp(var(--fs-base), 2vw + 1rem, var(--fs-title));
+  width: max-content;
+  background: var(--bg-gradient);
+  background-clip: text;
+  background-size: 150%;
+
+  -webkit-background-clip: text;
+  animation: gradient var(--gradient-speed) infinite;
+  -webkit-animation: gradient var(--gradient-speed) infinite;
+  color: transparent;
+}
+
+/* 
+.customer-marker > ::marker {
+  content: "\f13d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+} */
+
+.container {
+  margin-bottom: var(--margin-bottom);
+}
+
+h3:not(:first-of-type) {
+  margin-top: var(--margin-top);
+}
+
+.custom-marker > li::marker {
+  content: "\2728";
+  font-size: 0.7rem;
+  color: blue;
+}
+
+.custom-marker > li {
+  padding-left: 0.3rem;
+}
+
+.underline {
+  text-decoration: none;
+  color: #000;
+  position: relative;
+
+  transition: background 2s;
+}
+
+.underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  bottom: -2px;
+  background: var(--bg-gradient);
+
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in;
+}
+
+.underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+li + li {
+  line-height: 1.5;
+  padding-top: 0.6em;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+/* animation lists */
+@keyframes gradient {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(-180deg);
+  }
+
+  100% {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}

@@ -106,7 +106,7 @@ header section {
   width: max-content;
 }
 
-.intro h1::before,
+/* .intro h1::before,
 .intro h1::after {
   content: "";
   position: absolute;
@@ -127,7 +127,7 @@ header section {
   background: #000;
   animation: typewriter var(--typeSpeed) steps(30) 1.5s forwards,
     blink 750ms steps(26) infinite;
-}
+} */
 
 .intro .subtitle {
   font-size: clamp(1rem, 2vw + 0.75rem, 3rem);
