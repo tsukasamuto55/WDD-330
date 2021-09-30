@@ -171,6 +171,15 @@ li + li {
   padding-top: 0.6em;
 }
 
+.image {
+  display: flex;
+  justify-content: start;
+}
+
+.image img {
+  max-width: 35rem;
+}
+
 footer {
   background: #000;
   color: #fff;
@@ -189,5 +198,11 @@ footer {
 
   100% {
     -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+@media (min-width: 320px) {
+  .image img {
+    width: 90%;
   }
 }

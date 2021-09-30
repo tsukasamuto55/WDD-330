@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes / Exercises</title>
+    <link rel="stylesheet" href="../pages.css" />
+    <script src="../js/date.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Week03: Things I did</h1>
+    </header>
+    <main>
+      <div class="container">
+        <h3>Coding practice</h3>
+        <ul class="exercise custom-marker"></ul>
+      </div>
+
+      <div class="container">
+        <h2>Notes from JAVASCRIPT IN THE INDUSTRY (additional source I found)</h2>
+        <h3>Imperative vs. declarative</h3>
+        <ul class="custom-marker">
+          <li>
+            <b>Imperative</b> programming focuses on <b>how</b> you want something done.
+            We alter the state of our program step by step.
+          </li>
+          <li>
+            <b>Declarative</b> programming focuses on <b>What</b> the end result will be.
+            How to obtain that result is less interesting, as long as the process of
+            obtaining it does <b>not</b> alter the state of our program..
+          </li>
+          <li>
+            When a function carries out a task in a deterministic way without changing its
+            environment (changing state in its surroundings), it is called <b>pure</b>.
+          </li>
+        </ul>
+
+        <h3>Example of an imperative style</h3>
+        <div>There are few problems with this example</div>
+        <ol>
+          <li>
+            The function multiplyAll does not have a return value. Since it's not
+            returning anything, it's not pure.
+          </li>
+          <li>
+            The original <italic>listOfNumbers</italic>array gets <b>mutated</b>. The
+            function alters of the input given as an argument, which means it's
+            <b>not immutable.</b>
+          </li>
+        </ol>
+        <div class="image">
+          <img
+            src="images/imperative_style.png"
+            alt="an example of an imperative style of coding"
+          />
+        </div>
+        <h3>Example of an declarative style</h3>
+        <ol>
+          <li>
+            The function map has a return value. It doesn't change its surroundings and
+            will return the same result every time, so map method is <b>pure.</b>
+          </li>
+          <li>
+            The original <italic>listOfNumbers</italic>stays untouched. Map will create a
+            new copy of the array for us, then alter it. Hence, it is <b>pure.</b>
+          </li>
+        </ol>
+        <div class="image">
+          <img
+            src="images/declarative_style.png"
+            alt="an example of an declarative style of coding"
+          />
+        </div>
+
+        <h3>Things to be aware of</h3>
+        <ul class="custom-marker">
+          <li>
+            Be careful with
+            <italic>push, shift, unshift, pop, reverse, splice, sort, and fill</italic
+            >because those methods alter an ordinal array. Meaning, if we use them, our
+            code becomes am imperative style. Hence, it's not <b>pure.</b>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <h2>Notes from the article "This in JavaScript"</h2>
+        <h3>So, what is "this"?</h3>
+        <div>
+          There are six different ways where <code>this</code> can take on new values.
+        </div>
+        <ol>
+          <li><code>this</code> in global context</li>
+          <li><code>this</code> in object construction</li>
+          <li><code>this</code> in an object method</li>
+          <li><code>this</code> in a simple function</li>
+          <li><code>this</code> in an arrow function</li>
+          <li><code>this</code> in an even listener</li>
+        </ol>
+        <h3>This in a Global context</h3>
+        <div>
+          When <code>this</code> is called outside of any function, this defaults to the
+          Window object in the browser. Usually, we wouldn't use <code>this</code> in a
+          gloabl context.
+        </div>
+        <h3>This in object construction</h3>
+        <div>
+          when we create a new instance of an object with the new keyword, this refers to
+          the instance.
+        </div>
+        <div class="image">
+          <img
+            src="images/this_in_object.png"
+            alt="an example of this in object construction"
+          />
+        </div>
+        <h3>This in a Object method</h3>
+        <div>
+          Since this refers to the object, we can use methods to get the instance of an
+          object, like below.
+        </div>
+        <div class="image">
+          <img
+            src="images/this_in_object_method.png"
+            alt="an example of this in object construction"
+          />
+        </div>
+        <h3>This in a Simple function</h3>
+        <div>
+          We need to create a variable that stores the reference to the this. This
+          variable is often called self or that.
+        </div>
+        <div class="image">
+          <img
+            src="images/this_in_simple_function.png"
+            alt="an example of this in object construction"
+          />
+        </div>
+        <h3>This in am arrow function</h3>
+        <div>
+          this in an arrow function is always the same as this around it (in its immediate
+          scope.)<br />
+          With arrow functions, the speakLeet example could be written in the following
+          way:
+        </div>
+        <div class="image">
+          <img
+            src="images/this_in_arrow_function.png"
+            alt="an example of this in object construction"
+          />
+        </div>
+        <h3>This in Event Listeners</h3>
+        <div>this is set to the element that fired the event in an event listener:</div>
+      </div>
+    </main>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Tsukasa Muto | WDD 330</div>
+      <p></p>
+    </footer>
+  </body>
+</html>
