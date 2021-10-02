@@ -15,7 +15,11 @@
     <main>
       <div class="container">
         <h3>Coding practice</h3>
-        <ul class="exercise custom-marker"></ul>
+        <ul class="exercise custom-marker">
+          <li>
+            <a class="underline" href="excercise/days_calculator.html">Days Calculator</a>
+          </li>
+        </ul>
       </div>
 
       <div class="container">
@@ -153,6 +157,254 @@
         </div>
         <h3>This in Event Listeners</h3>
         <div>this is set to the element that fired the event in an event listener:</div>
+      </div>
+      <div class="container">
+        <h2>Novice to Ninja Ch.5: Functions</h2>
+        <ul class="custom-marker">
+          <li>
+            In order to access a value, use "."notation or "["key"]". obj.key or
+            obj["key"] for example is to access a value of a key inside of an object
+            "obj".
+          </li>
+
+          <li>
+            Use "in" operator or hasOwnProperty() method. For example, "city" in place or
+            place.hasOwnProperty("city").
+          </li>
+          <li>
+            for in loop is used to loop through all of an object's properties and methods.
+            To make sure that only an object’s own properties are returned, a quick check
+            can be implemented beforehand:
+            <div class="image">
+              <img src="images/for_in_loop.png" alt="an example of for in loop" />
+            </div>
+          </li>
+          <li>
+            The Object.keys() method will return an array of all the keys of any object
+            that is provided as an argument. We can then iterate over this array to access
+            all the keys of an object:
+          </li>
+          <li>
+            ES2017 also adds some the Object.values() that works in the same way, but
+            returns an array of all the object's value:
+          </li>
+          <li>
+            Object.entries() is also part of ES2017 and returns an array of key-value
+            pairs. These key-value pairs are returned in arrays, but they can be
+            destructured and accessed individually using the following notation:
+            <div class="image">
+              <img
+                src="images/object_entried.png"
+                alt="an example of obj.entries() method"
+              />
+            </div>
+          </li>
+          <li>Any property can be removed from an object using the delete operator.</li>
+          <li>
+            It’s even possible for an object to contain other objects. These are known as
+            nested objects. Here’s an example of an object that contains a list of other
+            objects. It has been assigned to the variable jla :
+            <div class="image">
+              <img src="images/nested_objects.png" alt="an example of nested objects" />
+            </div>
+          </li>
+          <li>
+            An object literal can be passed as a parameter to a function. This is useful
+            when there are a large number of parameters, as it allows the arguments to be
+            provided by name and in any order.
+          </li>
+        </ul>
+        <h3>JSON</h3>
+        <h4>Three major differences between Object and JSON</h4>
+        <ol>
+          <li>Property names must be double-quoted</li>
+          <li>
+            Permitted values are double-quoted strings, numbers, true, false, null, arrays
+            and objects
+          </li>
+          <li>Functions are not permitted values</li>
+        </ol>
+        <h3>The Math Object</h3>
+        <ul class="custom-marker">
+          <li>
+            The Math.abs() method returns the absolute value of a number. So if the number
+            is positive, it will remain the same, and if it’s negative, it will become
+            positive
+          </li>
+          <li>
+            The Math.ceil() method will round a numberupto the next integer, or remain the
+            same if it is already an integer
+          </li>
+          <li>
+            The Math.floor() method will round a numberdownto the next integer, or remain
+            the same if it is already an integer:
+          </li>
+          <li>The Math.round() method will round a number to thenearestinteger:</li>
+          <li>
+            ES6 also introduced the Math.trunc() method that returns the integer-part of a
+            number – that is, it gets truncated at the decimal point
+          </li>
+          <li>
+            The Math.exp() method will raise a number to the power of Euler’s constant:
+          </li>
+          <li>
+            The Math.cbrt() method was introduced in ES6, which returns the cube root of
+            numbers:
+          </li>
+          <li>
+            The Math.hypot() method was also introduced in ES6. It returns the square root
+            of the sum of the squares of all its arguments. This can be used to calculate
+            the hypotenuse of a right-angled triangle
+          </li>
+          <li>
+            The Math.log() method returns the natural logarithm of a number.Logarithms in
+            base 2 and 10 were added in ES6:
+          </li>
+          <li>
+            Whenever you perform any calculations, make sure your program doesn’t rely on
+            exact answers, and has some degree of tolerance instead. If you find you need
+            more precision, you could consider usingdecimal.js library.
+          </li>
+        </ul>
+        <h3>The Date Object: Getter and Setter methods</h3>
+        <ul class="custom-marker">
+          <li>
+            The getDay() and getUTCDay() methods are used to find the day of the week that
+            the date object falls on. It returns a number, starting at 0 for Sunday, up to
+            6 for Saturday
+          </li>
+          <li>
+            The getDate() and getUTCDate() methods return the day of the month for the
+            date object (note that these values start counting from 1, not 0, so they
+            return the actual day of the month)
+          </li>
+          <li>
+            The getMonth() and getUTCMonth() methods can be used to find the month of the
+            date object. It returns an integer, but remember to count from 0; so January
+            is 0, February is 1, and so on up to December being 11
+          </li>
+          <li>
+            The getFullYear() and getUTCFullYear() methods return the year of the date
+            object. There is also a getYear() method, but it isn’t Y2K compliant, so
+            shouldn’t be used
+          </li>
+          <li>
+            There are also getHours() , getUTCHours() , getMinutes() , getUTCMinutes() ,
+            getSeconds() , getUTCSeconds , getMilliseconds() , and getUTCMilliseconds()
+            methods that will return the hours, minutes, seconds and milliseconds since
+            midnight
+          </li>
+          <li>
+            The getTime() method returns a timestamp representing the number of
+            milliseconds since the Epoch. <br />
+            This can be useful for incrementing dates by a set amount of time. For
+            example, a day can be represented by 1000 * 60 * 60 * 24 milliseconds:
+            <div class="image">
+              <img
+                src="images/date.object.png"
+                alt="an example of how to increment dates"
+              />
+            </div>
+          </li>
+          <li>
+            Most of the getter methods covered in the previous section have
+            equivalentsettermethods. These are methods that can be used to change the
+            value of the date held in a Date object. Each of the methods takes an argument
+            representing the value to which you update the date. The methods return the
+            timestamp of the updated date object.
+          </li>
+        </ul>
+        <h3>Regular Expression properties</h3>
+        <ul class="custom-marker">
+          <li>
+            The global property makes the pattern return all matches. By default, the
+            pattern only looks for the first occurrence of a match. "g sets the global
+            property to true"
+          </li>
+          <li>
+            The ignoreCase property makes the pattern case-insensitive. By default, they
+            are case sensitive. "i sets the ignoreCase property to true"
+          </li>
+          <li>
+            The multiline property makes the pattern multiline. By default, a pattern will
+            stop at the end of a line. "m sets the multiline property to true"
+          </li>
+        </ul>
+        <div class="container">
+          <h2>Ch.6 The Document Object Model (DOM)</h2>
+          <ul class="custom-marker">
+            <li>All nodes have a numerical code to signify what type they are.</li>
+            <ol>
+              <li>Code: 1 => element</li>
+              <li>Code: 2 => attribute</li>
+              <li>Code: 3 => text</li>
+              <li>Code: 8 => comment</li>
+              <li>Code: 9 => body</li>
+            </ol>
+            <li>
+              To convert node lists to an array, use either Array.from() method or use the
+              spread operator: <br />
+              <code>const imageArray = [...document.images]</code>
+            </li>
+            <li>
+              The querySelector() method can be called on any element, rather than just
+              document: <br />
+              <code>const wonderWoman = document.querySelector('li:last-child');</code>
+              <code>const ul = document.querySelector('ul#roster');</code>
+            </li>
+            <li>
+              Note that the childNodes property returns all the nodes that are children of
+              an element. This will include any text nodes, and since whitespace is
+              treated as a text node, there will often be empty text nodes in this
+              collection.
+            </li>
+            <li>
+              The children property only returns any element nodes that are children of
+              that node, so will ignore any text nodes.
+            </li>
+            <li>The parentNode property returns the parent node of an element.</li>
+            <li>
+              The nextSibling property returns the next adjacent node of the same parent.
+            </li>
+            <li>The previousSibling property returns the previous adjacent node.</li>
+            <li>
+              Once again, these methods find the next and previous node, not element, so
+              they will often return a blank text node,
+            </li>
+            <li>
+              The getAttribute() method returns the value of the attribute provided as an
+              argument:
+            </li>
+            <li>
+              If an element does not have an attribute, the setAttribute method can be
+              used to add it to the element.
+            </li>
+            <li>
+              A className property allows the class of an element to be set directly.
+              <br />
+              <code>wonderWoman.className >> "villain</code><br />
+              <code>wonderWoman.className = "hero >> "hero"</code>
+            </li>
+            <li>
+              Changing the className property of an element by assignment will overwrite
+              all other classes that have already been set on the element. This problem
+              can be avoided by using the classList property instead.
+            </li>
+            <li>
+              li The insertBefore() method will place a new element before another element
+              in the markup. It’s important to note that this method is called on the
+              parent node. It takes two parameters: the first is the new node to be added,
+              and the second is the node that you want it to go before
+            </li>
+            <li>
+              The replaceChild() method can be used to replace one node with another.
+            </li>
+            <li>
+              Every element node has a style property. This can be used to dynamically
+              modify the presentation of any element on a web page.
+            </li>
+          </ul>
+        </div>
       </div>
     </main>
 

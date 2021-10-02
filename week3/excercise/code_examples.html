@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Justice League</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Justice League</h1>
+    </header>
+    <ul id="roster">
+      <li class="hero">Superman</li>
+      <li class="vigilante hero" id="bats">Batman</li>
+      <li class="hero">Wonder Woman</li>
+    </ul>
+    <div></div>
+    <script>
+      // A Function to create elements
+      function createElement(tag, text) {
+        const el = document.createElement(tag);
+        el.textContent = text;
+        return el;
+      }
+
+      console.log(createElement("p", "test"));
+
+      const div = createElement(
+        "div",
+        "This is an example of DOM manipulation. Check the code."
+      );
+      document.querySelector("div").append(div);
+
+      const h1 = document.getElementById("title");
+      const oldText = h1.firstChild;
+      const newText = document.createTextNode("Justice League of America");
+      h1.replaceChild(newText, oldText);
+      console.log(h1);
+
+      // If I use innerHTML property, I can rewrite the above code as below
+      h1.innerHTML = "Suicide Squad";
+
+      superman.style.border = "red 2px solid";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Days Calculator: Days Between Two Dates</title>
+  </head>
+  <body>
+    <h1>Days Calculator: Days Between Two Dates</h1>
+    <div>How many days, months, and years are there between two dates?</div>
+    <br />
+    <label>Choose a start date <input type="date" class="start" /></label>
+    <label>Choose an end date <input type="date" class="end" /></label>
+    <div class="output"></div>
+
+    <script>
+      const start = document.querySelector(".start");
+      const end = document.querySelector(".end");
+      const output = document.querySelector(".output");
+      let startDate = 0;
+      let endDate = 0;
+
+      start.addEventListener("change", () => {
+        startDate = new Date(start.value).getTime();
+      });
+
+      end.addEventListener("change", () => {
+        endDate = new Date(end.value).getTime();
+
+        if (diffBetweenDays(startDate, endDate) >= 0) {
+          output.innerText = `The time duration is ${diffBetweenDays(
+            startDate,
+            endDate
+          )} days`;
+        }
+      });
+
+      function diffBetweenDays(start, end) {
+        return Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+      }
+    </script>
+  </body>
+</html>
