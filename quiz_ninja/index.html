@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="A JavaScript Quiz Game" />
+    <title>Quiz Ninja</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="dojo">
+      <div class="quiz-body">
+        <header>
+          <div id="score">Score: <strong>0</strong></div>
+          <h1>Quiz Ninja!</h1>
+        </header>
+        <div id="question"></div>
+        <div id="result"></div>
+        <div id="info"></div>
+      </div>
+    </section>
+
+    <form id="hero">
+      <label for="heroName"
+        >Name:
+        <input
+          type="text"
+          id="heroName"
+          name="heroName"
+          autofocus
+          placeholder="Your Super Hero Name"
+          maxlength="32"
+          required
+        />
+      </label>
+
+      <p>Super Powers:</p>
+      <label for="flight"
+        >Flight: <input type="checkbox" id="flight" value="Flight" name="powers" /></label
+      ><label for="strength"
+        >Super Strength:
+        <input type="checkbox" id="strength" value="Strength" name="powers" /></label
+      ><label for="speed"
+        >Super Speed:
+        <input type="checkbox" id="speed" value="Super Speed" name="powers" /></label
+      ><label for="energy"
+        >Energy Blasts:
+        <input type="checkbox" id="energy" value="Energy Blasts" name="powers" /> </label
+      ><label for="telekinesis"
+        >Telekinesis:
+        <input type="checkbox" id="telekinesis" value="Telekinesis" name="powers"
+      /></label>
+
+      <p>What type of hero are you?</p>
+      <label for="hero"
+        >Hero: <input type="radio" name="category" value="Hero" id="hero" /></label
+      ><label for="villain"
+        >Villain:
+        <input type="radio" name="category" value="Villain" id="villain" /></label
+      ><label for="anti-hero"
+        >Anti-Hero: <input type="radio" name="category" value="Antihero" id="anti-hero"
+      /></label>
+
+      <label for="age"
+        >Age:<input type="number" id="age" name="age" min="0" step="1"
+      /></label>
+
+      <label for="City"
+        >Base of Operations:
+        <select name="city" id="city">
+          <option value="" selected>Choose a City</option>
+          <option value="Metropolis">Metropolis</option>
+          <option value="Gotham City">Gotham City</option>
+          <option value="Keystone City">Keystone City</option>
+          <option value="Coast City">Coast City</option>
+          <option value="Star City">Star City</option>
+        </select></label
+      >
+      <label for="origin"
+        >Origin Story:
+        <textarea id="origin" name="origin" cols="60" rows="20">
+  Born as Kal-El on the planet Krypton...</textarea
+        >
+      </label>
+      <button type="submit" id="submit" disabled>Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>

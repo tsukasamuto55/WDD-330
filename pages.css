@@ -169,6 +169,11 @@ h3:not(:first-of-type) {
 li + li {
   line-height: 1.5;
   padding-top: 0.6em;
+  margin-top: 0.5em;
+}
+
+ul img {
+  margin-bottom: 0.5em;
 }
 
 .image {

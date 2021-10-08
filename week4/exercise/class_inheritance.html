@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Inheritance</title>
+  </head>
+  <body>
+    <p>
+      Please look at console to see some examples of Class Inheritance. In this example,
+      speak() method is an example of Polymorphism, which means that different objects can
+      have the same method, but implement it in different ways.
+    </p>
+    <script>
+      class Animal {
+        constructor(name) {
+          this.name = name;
+        }
+        speak() {
+          console.log(`I am ${this.name}`);
+        }
+      }
+
+      class Dog extends Animal {
+        constructor(name, owner) {
+          super(name);
+          this.owner = owner;
+        }
+
+        speak() {
+          console.log("Bark!!");
+        }
+      }
+
+      const dog = new Dog("Fluffy", "Tsu");
+      console.log(dog.speak());
+
+      class Cat extends Animal {
+        constructor(name, owner, number) {
+          super(name);
+          this.owner = owner;
+          this.number = number;
+        }
+        speak() {
+          console.log("Meow!!");
+        }
+      }
+
+      const cat = new Cat("Blue", "Kevin", 2);
+
+      cat.numberOfCats = function () {
+        console.log(`${this.owner} has ${this.number} cats!`);
+      };
+      console.log(cat.speak());
+      console.log(cat.numberOfCats());
+
+      class Person {
+        constructor(name, age, numOfMops) {
+          this.name = name;
+          this.age = age;
+          this.numOfMops = numOfMops;
+        }
+        isOldEnough() {
+          if (this.age < 18) console.log("You are too young for this job.");
+          else console.log("You are old enough for this job");
+        }
+      }
+
+      class Janitor extends Person {
+        clean() {
+          console.log(
+            `${this.name} used ${this.numOfMops} mops to finish cleaning today.`
+          );
+        }
+      }
+
+      const janitor = new Janitor("Kevin", 30, 5);
+      console.log(janitor.clean());
+    </script>
+  </body>
+</html>

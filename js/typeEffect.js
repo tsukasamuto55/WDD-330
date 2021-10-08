@@ -5,10 +5,12 @@ const splitStrings = strings.split("");
 const splitStrings2 = strings2.split("");
 let content = "";
 
-const typingAnimation = setInterval(() => {
-  title.innerText = content += splitStrings.shift();
+setTimeout(() => {
+  const typingAnimation = setInterval(() => {
+    title.innerText = content += splitStrings.shift();
 
-  if (splitStrings == "") {
-    clearInterval(typingAnimation);
-  }
-}, 175);
+    if (splitStrings == "") {
+      clearInterval(typingAnimation);
+    }
+  }, 175);
+}, 1000);

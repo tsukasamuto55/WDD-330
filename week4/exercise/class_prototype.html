@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Prototypr Property</title>
+    <link rel="stylesheet" href="../../pages.css" />
+    <style>
+      body {
+        max-width: 60rem;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>The Prototype Property</h2>
+    <div>
+      When creating a class, you would normally add any default properties and methods to
+      the class declaration. But what if you want to augment the class with extra methods
+      and properties after it has been created? It turns out that you can still do this
+      using theprototypeproperty of the class. This is particularly useful if you don't
+      have access to the class declaration, but still want to add properties and methods
+      to the class.
+      <br />
+      Check the console to see the example. Notice that there’s a reference to this.weapon
+      in the prototype attack()method, and when the instance calls the attack()method, it
+      uses the instance’s weapon property. This is because this in the prototype always
+      refers to the instance that actually calls the method.
+    </div>
+    <script>
+      class Turtle {
+        constructor(name) {
+          this.name = name;
+          this.weapon = "hands";
+        }
+        sayHi() {
+          return `Hi dude, my name is ${this.name}`;
+        }
+      }
+      Turtle.prototype;
+      Turtle.prototype.weapon = "Hands";
+      Turtle.prototype.attack = function () {
+        return `Feel the power of my ${this.weapon}!`;
+      };
+
+      const raph = new Turtle("Raphael");
+
+      console.log(raph.name);
+      console.log(raph.sayHi());
+      console.log(raph.weapon);
+      console.log(raph.attack());
+    </script>
+  </body>
+</html>

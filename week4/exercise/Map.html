@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maps</title>
+  </head>
+  <body>
+    Please look at console for examples. With new Map(), we could use anything as key such
+    as boolean, numbers, objects, etc. With normal object, we need to use strings as key.
+    One advantage over an object is order of the values inside is always the same oder as
+    I put in.
+
+    <script>
+      const user = { name: "Kyle" };
+
+      //   const map = new Map([[user, { age: 25 }]]);
+      //   console.log(map.get(user));
+
+      const map = new Map([
+        [1, "A"],
+        [2, "B"],
+        [3, "C"],
+        [4, "D"],
+        ["E", 5],
+      ]);
+      console.log(map);
+      //   looping over a map is easy
+      map.forEach((value, key) => {
+        console.log(value, key);
+      });
+
+      const obj = {
+        a: 1,
+        b: 2,
+        c: 3,
+        d: 4,
+      };
+
+      // cannot use forEach on object like below.
+      //   obj.forEach((ele) => console.log(ele));
+
+      //   I need to do following to loop each element of an object
+      Object.entries(obj).forEach(([key, value]) => {
+        console.log(key, value);
+      });
+
+      console.log(obj.d);
+
+      //   Methods for map
+      //   map.get(key)
+      console.log(map.get("E"));
+
+      //   map.set(key, value) to set a key and a value combination in a map
+      console.log(map.set(5, "E"));
+
+      //   map.has(key) is there a value of key : this is a boolean
+      console.log(map.has(5));
+
+      //   map.delete(key) delete the key and associated value.
+      map.delete(1);
+      console.log(map);
+
+      const items = new Map([
+        [
+          1,
+          {
+            id: 1,
+            name: "Test",
+            description: "Desc",
+          },
+        ],
+        [
+          2,
+          {
+            id: 2,
+            name: "Test 2",
+            description: "Desc 2",
+          },
+        ],
+        [
+          3,
+          {
+            id: 3,
+            name: "Test 3",
+            description: "Desc",
+          },
+        ],
+      ]);
+
+      function getItem(id) {
+        return items.get(id);
+      }
+      console.log(getItem(2).name);
+    </script>
+  </body>
+</html>

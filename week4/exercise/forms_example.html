@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Form</title>
+    <style>
+      body {
+        height: 60vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        font-family: sans-serif;
+      }
+
+      .form {
+        width: 50%;
+        position: relative;
+        height: 50px;
+        overflow: hidden;
+      }
+
+      .form input {
+        width: 100%;
+        height: 100%;
+        color: #595f6e;
+        padding-top: 10px;
+        border: none;
+        outline: none;
+      }
+
+      .form label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        border-bottom: 1px solid black;
+      }
+
+      .form label::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px; /* offset 1px of black border*/
+        height: 100%;
+        width: 100%;
+        border-bottom: 3px solid #5fa8d3;
+        transform: translateX(-100%);
+        transition: all 0.3s ease;
+      }
+
+      .content-name {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        transition: all 0.3s ease;
+      }
+
+      .form input:focus + .label-name .content-name,
+      .form input:not(:placeholder-shown) + .label-name .content-name {
+        transform: translateY(-150%);
+        font-size: 0.9rem;
+        color: #5fa8d3;
+      }
+
+      .form input:focus + .label-name::after,
+      .form input:not(:placeholder-shown) + label-name::after {
+        transform: translateY(0%);
+      }
+    </style>
+  </head>
+  <body>
+    <form name="search" action="/search">
+      <input name="searchInput" />
+      <button type="submit">Search</button>
+    </form>
+    <br /><br />
+
+    <!-- Input animations is based on Dev Ed Tutorial  https://www.youtube.com/watch?v=IxRJ8vplzAo-->
+    <div class="form">
+      <input type="text" name="name" autocomplete="off" placeholder=" " />
+      <label for="name" class="label-name">
+        <span class="content-name">Name</span>
+      </label>
+    </div>
+
+    <script>
+      // It is equivalent of using document.getElementsByTagname("form")[0]
+      const form = document.forms[0];
+      // Different ways to access forms elements
+      // const form = document.forms['search'];
+      // const input = form['searchInput']
+
+      const input = form.elements.searchInput;
+      input.addEventListener("focus", () => console.log("focused"), false);
+      input.addEventListener("blur", () => console.log("blurred"), false);
+      input.addEventListener("change", () => console.log("changed"), false);
+
+      form.addEventListener("submit", search, false);
+
+      function search(e) {
+        e.preventDefault();
+        alert(`You searched for ${input.value}`);
+      }
+    </script>
+  </body>
+</html>
