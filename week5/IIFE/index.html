@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Immediately invoked Function Expression (IIFE)</title>
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h2>We are in header</h2>
+      <button class="count-up" data-header-count-up>Count up!</button>
+      <button class="menu-btn" data-menu-btn>Menu</button>
+    </header>
+
+    <main>
+      <p>
+        An IIFE (Immediately Invoked Function Expression) is a JavaScript function that
+        runs as soon as it is defined. The name IIFE is promoted by Ben Alman in his blog.
+      </p>
+      <div>
+        <p>
+          It is a design pattern which is also known as a Self-Executing Anonymous
+          Function and contains two major parts:
+        </p>
+        <ol>
+          <li>
+            The first is the anonymous function with lexical scope enclosed within the
+            Grouping Operator (). This prevents accessing variables within the IIFE idiom
+            as well as polluting the global scope.
+          </li>
+          <li>
+            The second part creates the immediately invoked function expression () through
+            which the JavaScript engine will directly interpret the function.
+          </li>
+        </ol>
+      </div>
+      <h3>The module pattern</h3>
+      <img
+        src="../../pics/iife.png"
+        alt="example of Immediately Invoked Function Expression"
+      />
+    </main>
+
+    <footer>
+      <h2>We are in footer</h2>
+      <button class="count-up" data-footer-count-up>Count up!</button>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes / Exercises</title>
+    <link rel="stylesheet" href="../pages.css" />
+    <script src="../js/date.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Week04: Things I did</h1>
+    </header>
+    <main>
+      <div class="container">
+        <h3>Coding practice</h3>
+        <ul class="exercise custom-marker">
+          <li><a href="exercise/forms_example.html">Forms examples</a>
+          </li>
+          <li><a href="exercise/class_inheritance.html">Class Inheritance</a>
+          </li>
+          <li><a href="exercise/class_inheritance.html">Class Prototype</a>
+          </li>
+          <li><a href="exercise/Map.html">Maps</a>
+          </li>
+          <li><a href="exercise/public_private.html">Public and private in OOP</a>
+          <li><a href="exercise/modules.html">Modules in JavaScript</a>
+          <li><a href="team_activity/index.html">Team Activity: Tic Tac Toe</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container">
+
+      <div class="container">
+        <h2>Novice to Ninja Ch.8: Forms</h2>
+        <h3>Form Properties and methods</h3>
+        <ul class="custom-marker">
+          <li>
+            The form.submit() method will submit the form automatically. Note that submitting a form using this method won’t trigger the form submit event that's covered in the next section.
+          </li>
+          <li>
+            A form can be submitted manually by the user employing a button or input element with a type attribute of submit, or even an input element with a type attribute of image
+          </li>
+          <li>
+            The form.action property can be used to set the action attribute of a form, so it’s sent to a different URL to be processed on the server:
+          </li>
+          <li>The focus event occurs when an element is focused on. In the case of an input element, this is when the cursor is placed inside the element (either by clicking or tapping on it or navigating to it using the keyboard).</li>
+          <li>The blur event occurs when the user moves the focus away from the form element. </li>
+          <li>The change event occurs when the user moves the focus away from the form element after changing it. So if a user clicks in an input field and makes no changes, and then clicks elsewhere, the change event won’t fire, but the blur event will. Note that the blur event will also fire, but after the change event if there is any.</li>
+          <li>Checkboxes can be checked initially using the 'checked' attribute in the HTML</li>
+          <li>It is possible to find out the index of the option that has been selected, using the selectedIndex property.</li>
+        </ul>
+        <div class="container">
+            
+      <div class="container">
+        <h2>Novice to Ninja Ch.12: Object-Oriented Programming in JavaScript</h2>
+        <ul class="custom-marker">
+          <li>
+            Encapsulation: In OOP, this involves keeping all the programming logic inside an object and making methods available to implement the functionality, without the outside world needing to know how it’s done.
+          </li>
+          <li>
+            Polymorphism:  In OOP, this means various objects can share the same method, but also have the ability to override shared methods with a more specific implementation.
+          </li>
+          <li>
+            Inheritance: Taking the features of one object then adding some new features. In OOP, this means we can take an object that already exists and inherit all its properties and methods. We can then improve on its functionality by adding new properties and methods.
+          </li>
+          <li>The ES6 class declarations are preferable to the constructor function syntax because they are more succinct, easier to read and all code in a class definition is implicitly in strict mode, so doesn't need the 'use strict' statement.</li><img src="../pics/class_example.png" alt="">
+          <li>We can use the constructor property to instantiate a copy of an object, without having to reference the actual constructor function or class declaration directly. For example, if we wanted to make another copy of the redDice object, but if the name of its constructor was unknown, we could use the following:</li><img src="../pics/class_constructor.png" alt="">
+          <li>The static keyword can be used in class declarations to create a static method. These are sometimes called class methods in other programming languages. A static method is called by the class directly rather than by instances of the class.</li><img src="../pics/class_static1.png" alt="">
+          <br><img src="../pics/class_static.png" alt="">
+          <li>Static methods are not available to instances of the class. So, in our example, the instances of Dice such as redDice and blueDice cannot call the static description()method</li>
+          
+          <li>JavaScript uses a prototypal inheritance model. This means that every class has a prototype property that is shared by every instance of the class. So any properties or methods of a class’s prototype can be accessed by every object instantiated by that class.</li><img src="../pics/polymorphism1.png" alt="">
+          <br><img src="../pics/polymorphism2.png" alt="">
+          <br><img src="../pics/polymorphism3.png" alt="">
+          <li>The Prototype Property: <a href="exercise/class_prototype.html">Example</a></li>
+         <li>Every object has a hasOwnProperty()method that can be used to check if a method is its own property, or is inherited from the prototype:</li>
+         <li>The prototype can be used to add any new properties and methods after the class has been declared. It should be used to define any properties that will remain the same for every instance of the class.</li>
+         <li>A golden rule to remember is:Never use arrays or objects as a default value in prototype.
+
+          This is not a problem if arrays or objects are set as default values from within the constructor function in the class declaration.</li>
+          <li>A mixin is a way of adding properties and methods of some objects to another object without using inheritance. It allows more complex objects to be created by ‘mixing’ basic objects together.</li>
+          <li>The bind()method is a method for all functions and is used to set the value of this in the function.</li>
+        </ul>
+        <div class="container">
+          
+          <div class="container">
+            <h2>Novice to Ninja Ch.15: Modern JavaScript Development</h2>
+            <ul class="custom-marker">
+              <li>
+                A module is a self-contained piece of code that provides functions and methods that can then be used in other files and by other modules. 
+              </li>
+             <li>If there are lots of values and functions that need to be imported, then everything in a module file can be imported using the wildcard symbol*along with a namespace for the imported values and functions using the following notation:</li>
+            </ul>
+            <div class="container">
+      </div>
+    </main>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Tsukasa Muto | WDD 330</div>
+      <p></p>
+    </footer>
+  </body>
+</html>

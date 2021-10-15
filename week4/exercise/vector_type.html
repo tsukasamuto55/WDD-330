@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Vector Type</title>
+  </head>
+  <body>
+    <h1>A Vector Type from Eloquent JavaScript Ch.6</h1>
+    <script>
+      class Vec {
+        constructor(x, y) {
+          (this.x = x), (this.y = y);
+        }
+
+        plus(secondX, secondY) {
+          console.log(this.x + secondX, this.y + secondY);
+        }
+
+        minus(secondX, secondY) {
+          console.log(this.x - secondX, this.y - secondY);
+        }
+
+        multiple(secondX, secondY) {
+          console.log(this.x * secondX, this.y * secondY);
+        }
+      }
+
+      const vec = new Vec(10, 20);
+
+      vec.plus(210, 35);
+
+      vec.minus(55, 47);
+
+      vec.multiple(10, 40);
+    </script>
+  </body>
+</html>
