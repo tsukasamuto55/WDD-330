@@ -37,34 +37,32 @@ const imgBasePath = "//byui-cit.github.io/cit261/examples/";
 window.addEventListener("load", () => {
   showHikeList();
 
-  const lists = document.querySelectorAll("li");
+  const lists = Array.from(document.querySelectorAll("li"));
 
   lists.forEach((list) => {
-    list.addEventListener("click", (e) => {
-      console.log(e.target);
-      list.classList.add("hide");
+    list.addEventListener("click", () => {
+      const hikeListElement = document.getElementById("hikes");
+      hikeListElement.innerHTML = "";
     });
   });
 
-  lists.forEach((list) => {
-    list.addEventListener(
-      "click",
-      (e) => {
-        showDetailedHike();
-      },
-      { once: true }
-    );
-  });
+  // lists.forEach((list) => {
+  //   list.addEventListener(
+  //     "click",
+  //     (e) => {
+  //       showDetailedHike();
+  //     },
+  //     { once: true }
+  //   );
+  // });
 });
 
 function showDetailedHike() {
   const hikeListElement = document.getElementById("hikes");
   hikeListElement.innerHTML = "";
 
-  function renderHikeList(hikes, parent) {
-    hikes.forEach((hike) => {
-      parent.appendChild(renderDetailedHike(hike));
-    });
+  function renderHikeList(hike, parent) {
+    parent.appendChild(renderDetailedHike(hike));
   }
   renderHikeList(hikeList, hikeListElement);
 }
