@@ -1,34 +1,35 @@
-import timestamp from "./timestamp.js";
 import writeToLS from "./ls.js";
+import timestamp from "./timestamp.js";
 
 //********** DOM selectors ***********//
-export const form = document.querySelector("#new-todo-form");
+const form = document.querySelector("#new-todo-form");
 const LIST_STORAGE_KEY = `Todo_List`;
 const inputTodo = document.querySelector(".todo-input");
 const template = document.querySelector("#list-item-template");
-export const list = document.querySelector("ul");
-export const allBtn = document.querySelector(".all-btn");
-export const activeBtn = document.querySelector(".active-btn");
-export const completeBtn = document.querySelector(".complete-btn");
+const list = document.querySelector("ul");
+const allBtn = document.querySelector(".all-btn");
+const activeBtn = document.querySelector(".active-btn");
+const completeBtn = document.querySelector(".complete-btn");
 
-let listItems = loadList();
 //********** events ***********//
+let listItems = loadList();
+listItems.forEach((listItem) => {
+  renderList(listItem);
+  displayTaskAmount();
+}); // I can shorthand this code: listItems.forEach(renderList)
 
-export function changeEvent() {
-  list.addEventListener("change", (e) => {
-    if (!e.target.matches(".list-item-checkbox")) return;
+list.addEventListener("change", (e) => {
+  if (!e.target.matches(".list-item-checkbox")) return;
 
-    const parentEle = e.target.closest(".list-item");
-    const listItemId = parentEle.dataset.listItemId;
-    let listItem = listItems.find((item) => item.id === listItemId);
+  const parentEle = e.target.closest(".list-item");
+  const listItemId = parentEle.dataset.listItemId;
+  const listItem = listItems.find((item) => item.id === listItemId);
 
-    listItem.completed = e.target.checked;
+  listItem.completed = e.target.checked;
+  saveList();
+});
 
-    saveList();
-  });
-}
-
-export const deleteEvent = list.addEventListener("click", (e) => {
+list.addEventListener("click", (e) => {
   if (!e.target.matches(".delete-btn")) return;
 
   const parentEle = e.target.closest(".list-item");
@@ -40,7 +41,7 @@ export const deleteEvent = list.addEventListener("click", (e) => {
   saveList();
 });
 
-export const addEvent = form.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const listName = inputTodo.value;
@@ -60,34 +61,34 @@ export const addEvent = form.addEventListener("submit", (e) => {
   inputTodo.value = "";
 });
 
-export const allBtnEvent = allBtn.addEventListener("click", () => {
+allBtn.addEventListener("click", () => {
   removeTasks();
   listItems.forEach(renderList);
-  displayTaskAmount();
 });
 
-export const activeBtnEvent = activeBtn.addEventListener("click", () => {
+activeBtn.addEventListener("click", () => {
   const incompleteList = listItems.filter((listItem) => !listItem.completed);
   removeTasks();
   incompleteList.forEach((list) => renderList(list));
-  displayTaskAmount();
 });
 
-export const completeBtnEvent = completeBtn.addEventListener("click", () => {
+completeBtn.addEventListener("click", () => {
   const completedList = listItems.filter((listItem) => listItem.completed);
   removeTasks();
   completedList.forEach((list) => renderList(list));
-  displayTaskAmount();
 });
 
 //********** functions ***********//
+function saveList() {
+  writeToLS(LIST_STORAGE_KEY, JSON.stringify(listItems));
+}
 
-export function loadList() {
+function loadList() {
   const listString = localStorage.getItem(LIST_STORAGE_KEY);
   return JSON.parse(listString) || [];
 }
 
-export function renderList(listName) {
+function renderList(listName) {
   const templateClone = template.content.cloneNode(true);
   const listItem = templateClone.querySelector(".list-item");
   listItem.dataset.listItemId = listName.id;
@@ -102,17 +103,15 @@ export function renderList(listName) {
   list.append(templateClone);
 }
 
+function displayTaskAmount() {
+  const taskAmount = document.querySelector(".task-amount");
+  taskAmount.innerHTML = listItems.length;
+}
+
 function removeTasks() {
   Array.from(list.children).forEach((ele) => {
     ele.remove();
   });
 }
 
-function saveList() {
-  writeToLS(LIST_STORAGE_KEY, JSON.stringify(listItems));
-}
-
-export function displayTaskAmount() {
-  const taskAmount = document.querySelector(".task-amount");
-  taskAmount.innerHTML = listItems.length;
-}
+// Utilize window.confirm("Would you like to delete this task?") to ask a user if the user wants to delete a task or not.

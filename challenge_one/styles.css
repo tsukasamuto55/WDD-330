@@ -76,14 +76,91 @@ select {
   }
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.hidden {
+  display: none;
 }
 
-.task-container,
-#new-todo-form {
+body {
+  font-family: "Lato", sans-serif;
   width: 400px;
+  margin: 0 auto;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+h1 {
+  text-align: center;
+}
+
+.todo-container {
+  display: grid;
+  place-content: center;
+}
+
+ul {
+  padding-left: 0;
+}
+
+button:not(.add-btn) {
+  border: none;
+  background: inherit;
+}
+
+.all-btn:hover,
+.active-btn:hover,
+.complete-btn:hover {
+  outline: 1px solid #000;
+}
+
+.list-item-checkbox,
+label:hover,
+button {
+  cursor: pointer;
+}
+
+.list-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.list-item {
+  list-style: none;
+  padding-block: 0.5em;
+  border: 1px solid #000;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 0;
+  padding: 0 1em;
+
+  color: purple;
+}
+
+.list-item-checkbox {
+  transform: scale(2);
+  margin-inline: 0.8em;
+  accent-color: pink;
+}
+
+.list-item-checkbox:hover {
+  accent-color: inset;
+}
+
+.list-item-checkbox:hover ~ .list-item-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.list-item-checkbox:checked ~ .list-item-text {
+  text-decoration: line-through;
+  color: red;
+}
+
+form {
+  margin-top: 5em;
 }

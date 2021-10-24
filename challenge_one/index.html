@@ -5,39 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="js/main.js" type="module" defer></script>
-    
+    <link rel="stylesheet" href="styles.css" />
+    <script src="js/main.js" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/e5fb0b605c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1>Todos</h1>
-    
-    <div class="task-container">
-    <ul id="list">
-   
-    </ul>
-    <div class="filter-tasks">
-      <span class="task-amount">0 tasks left</span>
-      <button class="all-btn">All</butt>
-      <button class="active-btn">Active</button>
-      <button class="complete-btn">Completed</button>
-    </div>
-  </div>
+    <div class="todo-container">
+      <div class="task-container">
+        <ul id="list"></ul>
+        <div class="filter-tasks">
+          <span><span class="task-amount">0</span> tasks left</span>
+          <button class="all-btn">All</button>
+          <button class="active-btn">Active</button>
+          <button class="complete-btn">Completed</button>
+        </div>
+      </div>
 
+      <template id="list-item-template">
+        <div class="list-container">
+          <label>
+            <li class="list-item">
+              <input type="checkbox" class="list-item-checkbox" />
+              <span class="list-item-text"></span>
+              <button class="delete-btn"><i class="fas fa-trash"></i></button>
+            </li>
+          </label>
+        </div>
+      </template>
 
-    <template id="list-item-template">
-      <li class="list-item">
-        <input type="checkbox" class="list-item-checkbox" />
-        <span class="list-item-text"></span>
-        <button class="delete-btn">X</button>
-      </li>
-    </template>
-
-    <footer>
       <form action="#" id="new-todo-form">
         <input type="text" class="todo-input" />
-        <button type="button" class="add-btn">Add a todo task</button>
+        <button class="add-btn">Add a todo task</button>
       </form>
-    </footer>
+    </div>
   </body>
 </html>
