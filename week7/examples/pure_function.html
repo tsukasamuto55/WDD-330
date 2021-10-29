@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Function</title>
+    <script>
+        const array = [1,2,3,4]
+
+// this is not a pure function since it mutates the global variable array. If we execute this function, another element will be added to the variable array. Hence, this is not pure. 
+        // function addElement(element) {
+        //     array.push(element)
+        // }
+
+        // addElement(5)
+        // print(array) // array = [1,2,3,4,5]
+
+// This is a pure function because it will not mutate the variable array
+        function pureAddElement(arr, element) {
+         return [...arr, element]
+        }
+const newArray = pureAddElement(array, 5)
+        console.log(array, newArray)
+
+        const person = {
+            name: "Tsukasa",
+            family: ["Emily", "Sakuya"],
+        }
+
+        function addFamily(obj, familyName) {
+            return {...obj, family: [...obj.family, familyName]}
+        }
+        
+        console.log(addFamily(person, 'Lishi'))
+        console.log(person)
+    </script>
+</head>
+<body>
+    <p>If you call an impure function inside of a pure function, the pure function will not longer be pure. <br> Remember, an output of a pure function should be same all time. <br>If we use Math.random() method as an argument of a function, that function become impure because the outcome is always different. </p>
+</body>
+</html>

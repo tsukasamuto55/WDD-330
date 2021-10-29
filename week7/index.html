@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes / Exercises</title>
+    <link rel="stylesheet" href="../pages.css" />
+    <script src="../js/date.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Week07: Things I did</h1>
+    </header>
+    <main>
+      <div class="container">
+        <h3>Coding practice</h3>
+        <ul class="exercise custom-marker">
+          <li>
+            <a class="underline" href="../week5/IIFE/index.html"
+              >IIFE (Immediately Invoked Function Expression)</a
+            >
+          </li>
+          <li>
+            <a class="underline" href="../week5/team_activity/index.html"
+              >Team Activity</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <h2>Novice to Ninja Ch.11: Further Functions</h2>
+        <h3>Function Properties and Methods</h3>
+        <ul class="custom-marker">
+          <li>
+            The call() method can be used to set the value of this inside a function to an object that is provided as the first argument.
+
+In the following example, the sayHello() function refers to an unspecific object called this that has a property called name:
+
+          </li>
+          <img src="./pics/call_method.PNG" alt="">
+          <li>
+            We can create some objects that have a name property, then use the call() method to invoke the sayHello() function, providing each object as an argument. This will then take the value of this in the function:
+          </li>
+          <img src="./pics/call_method2.png" alt="">
+          <li>
+            If a function doesn’t refer to an object as this in its body, it can still be called using the call() method, but you need provide null as its first argument. For example, we could call the square() function using the call() method, like so:
+          </li>
+          <img src="./pics/call_method33.png" alt="">
+          <li>The apply() method works in the same way, except the arguments of the function are provided as an array, even if there is only one argument:</li>
+        </ul>
+        <h4>Custom Properties</h4>
+        <ul>
+          <li>
+            A useful feature of this is that it provides result caching, or memoization.
+
+            If a function takes some time to compute a return value, we can save the result in a cache property. Then if the same argument is used again later, we can return the value from the cache, rather than having to compute the result again. For example, say squaring a number was an expensive computational operation that took a long time. We could rewrite the square() function so it saved each result in a cache object that is a property of the function:
+          </li>
+          <img src="./pics/memoization.png" alt="">
+          <li>If we try calling the function a few times, we can see that the cache object stores the results:</li>
+          <img src="./pics/memoization2.png" alt="">
+        </ul>
+
+        <h4>Initialization Code in IIFE</h4>
+        <ul>
+          <li>
+            An IIFE can be used to set up any initialization code that there’ll be no need for again. Because the code is only run once, there’s no need to create any reusable, named functions, and all the variables will also be temporary. An IIFE will be invoked once, and can set up any variables, objects and event handlers when the page loads. The following example logs a welcome message to the console, then eliminates all the temporary variables used in putting the message together:
+          </li>
+          <img src="./pics/initialization_code.png" alt="example of initialization code in IIFE" />
+          <li>Note that much of this can be achieved in ES6 by simply placing the code inside a block. This is because variables have block scope when const or let are used, whereas in previous versions of JavaScript, only functions maintained the scope of variables. The example above would work just as well using the following code:</li>
+          <img src="./pics/initialization_code2.png" alt="">
+        </ul>
+        
+        <h4>Init-Time Branching</h4>
+        <ul>
+          <li>This technique can be used with the feature detection that we discussed in the last chapter to create functions that rewrite themselves, known as init-time branching. This enables the functions to work more effectively in the browser, and avoid checking for features every time they’re invoked. This can be a useful pattern to initialize functions the first time they’re called, optimizing them for the browser being used.</li>
+        </ul>
+
+        <h4>Async Functions</h4>
+        <ul>
+          <li>Async functions were added to the ES2017 specification. These functions are preceded by the async keyword and allow you to write asynchronous code as if it was synchronous. This is achieved by using the await operator before an asynchronous function. This will wrap the return value of the function in a promise that can then be assigned to a variable. The next line of code is not executed until the promise is resolved.</li>
+        </ul>
+
+        <h4>Generalized Functions</h4>
+        <ul>
+          <li>Callbacks can be used to build more generalized functions. Instead of having lots of specific functions, one function can be written that accepts a callback. For example, let's create a function that returns a random integer between two values that are provided as arguments, a and b, or if only 1 argument is provided, it will return a random integer between 1 and the argument provided:</li>
+          <img src="pics/generalized_function.png" alt="an example code of generalized function">
+        </ul>
+
+        <h4>Closure</h4>
+        <ul>
+          <li>A closure is formed when a function returns another function that then maintains access to any variables created in the original function’s scope. In the following example, two variables, a and b, are created in the scope of the closure() function. This then returns an anonymous arrow function that maintains access to the variables a and b even after the closure() function has been invoked: <img src="pics/closure.png" alt="example code of closure"></li>
+         <li>Now we can create a new function by invoking the closure() function and assigning the return value to a variable called toFahrenheit:
+           <img src="pics/closure2.png" alt="a continuous example of closure">
+         </li>
+         <li>This new function can then be invoked with its own argument, but the values of a and b from the original function are still kept 'alive':</li>
+        </ul>
+
+        <h4>Generators</h4>
+        <ul>
+          <li>ES6 introduced support for generators. These are special functions used to produce iterators that maintain the state of a value.
+            To define a generator function, an asterisk symbol (*) is placed after the function declaration, like so: <img src="pics/generator.png" alt="example code of generator"></li>
+         <li>Calling a generator function doesn’t actually run any of the code in the function; it returns a Generator object that can be used to create an iterator that implements a next() method that returns a value every time the next() method is called. <br> For example, we can create a generator to produce a Fibonacci-style number series (a sequence that starts with two numbers and the next number is obtained by adding the two previous numbers together), using the following code:
+           <img src="pics/generator2.png" alt="a continuous example of generator">
+         </li>
+         <li>This new function can then be invoked with its own argument, but the values of a and b from the original function are still kept 'alive':</li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Tsukasa Muto | WDD 330</div>
+      <p></p>
+    </footer>
+  </body>
+</html>

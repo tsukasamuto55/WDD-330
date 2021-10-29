@@ -53,6 +53,7 @@ export const addEvent = form.addEventListener("submit", (e) => {
   };
   listItems.push(newListItem);
 
+  
   renderList(newListItem);
   displayTaskAmount();
   saveList();

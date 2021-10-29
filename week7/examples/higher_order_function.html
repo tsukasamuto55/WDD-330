@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Order Function</title>
+    <style>
+        body {
+            max-width: 700px;
+            margin: 4em auto;
+            line-height: 1.8;
+        }
+    </style>
+    <script>
+        const array = [1,2,3,4,5]
+
+        const newArray = array.map(element => element * 9)
+
+        // We can chain multiple methods for a higher order function. 
+        const newNewArray = array.map(element => element * 9).map(element => element /3)
+
+        console.log(array)
+        console.log(newArray)
+        console.log(newNewArray)
+    
+        const people = [
+            {
+                name: "Tsukasa",
+                family: ["Emily", "Sakuya"],
+            },
+            {
+                name: "Emily", 
+                family: "Tsukasa",
+            },
+            {
+                name: "Sakuya",
+                family: ["Tsukasa", "Emily"],
+            },
+        ]
+
+        const results = groupBy(people, person => person.family.length)
+        console.log(results)
+
+     function groupBy(array, func) {
+         return array.reduce((grouping, element) => {
+             const key = func(element)
+             if (grouping[key] == null) grouping[key] = []
+             grouping[key].push(element)
+             return grouping
+         }, {})
+     }
+    </script>
+</head>
+<body>
+    Higher-order functions are functions that accept another function as an argument, or return another function as a result, or both.<br>
+    Check console for examples. 
+</body>
+</html>

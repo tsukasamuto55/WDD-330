@@ -1,6 +1,7 @@
-const ul = document.querySelector("ul");
+const blockOneUl = document.querySelector(".block1");
+const blockTwoUl = document.querySelector(".block2");
 
-const links = [
+const linksOne = [
   {
     label: "Week 01",
     url: "week1/index.html",
@@ -27,11 +28,28 @@ const links = [
   },
 ];
 
-links.forEach((link) => {
-  const li = document.createElement("li");
-  const anchor = document.createElement("a");
-  anchor.setAttribute("href", link.url);
-  anchor.innerHTML = link.label;
-  li.append(anchor);
-  ul.append(li);
-});
+const linksTwo = [
+  {
+    label: "Week 07",
+    url: "week7/index.html",
+  }
+];
+
+createLists(blockOneUl, linksOne)
+createLists(blockTwoUl, linksTwo)
+
+
+function createLists(ul, links) {
+
+  links.forEach((link) => {
+    console.log(ul)
+    console.log(links)
+    const li = document.createElement("li");
+    const anchor = document.createElement("a");
+    anchor.setAttribute("href", link.url);
+    anchor.innerHTML = link.label;
+    li.append(anchor);
+    ul.append(li);
+  })
+}
+

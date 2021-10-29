@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immutability</title>
+    <script>
+        const person = deepFreeze({
+            name: "Tsukasa",
+            family: ["Emily", "Sakuya"],
+            address: {
+                street: "1234",
+            }
+        })
+
+
+        const newPerson = deepFreeze({...person, address: {...person.address, street:"1"}})
+        person.address.street = "1"
+        // console.log(person)
+        // console.log(newPerson)
+
+        // apply Object.freeze() to each of array or an object inside of an object. Object.freeze() freezes only one level deep. 
+        function deepFreeze(object) {
+            // Object.values(object) will return a list of all the values.
+            Object.values(object).forEach(value => {
+                if (value && typeof value === "object") {
+                    deepFreeze(value)
+                }
+            })
+            return Object.freeze(object)
+        }
+
+        console.log(Object.values(person))
+    </script>
+    <style>
+        body {
+            max-width: 700px;
+            margin: 4em auto;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    Even if we use const, if it is an array or an object, since we just pass in a reference, the variable can be mutable. <br>Check the console for an example for immutable array or an object with Object.freeze() function.<br>
+    To make an object immutable, recursively freeze each property which is of type object (deep freeze). Use the pattern on a case-by-case basis based on your design when you know the object contains no cycles in the reference graph, otherwise an endless loop will be triggered. An enhancement to deepFreeze() would be to have an internal function that receives a path (e.g. an Array) argument so you can suppress calling deepFreeze() recursively when an object is in the process of being made immutable. You still run a risk of freezing an object that shouldn't be frozen, such as [window]. 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof">MDN</a>
+</body>
+</html>
