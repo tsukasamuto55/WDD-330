@@ -17,12 +17,42 @@
         <h3>Coding practice</h3>
         <ul class="exercise custom-marker">
           <li>
-            <a class="underline" href="../week5/IIFE/index.html"
-              >IIFE (Immediately Invoked Function Expression)</a
+            <a class="underline" href="./examples/ajax.html"
+              >Ajax</a
             >
           </li>
           <li>
-            <a class="underline" href="../week5/team_activity/index.html"
+            <a class="underline" href="./examples/Flattening.html"
+              >Flattening</a
+            >
+          </li>
+          <li>
+            <a class="underline" href="./examples/higher_order_function.html"
+              >Higher Order Function</a
+            >
+          </li>
+          <li>
+            <a class="underline" href="./examples/immutability.html"
+              >immutability</a
+            >
+          </li>
+          <li>
+            <a class="underline" href="./examples/promise.html"
+              >Promise</a
+            >
+          </li>
+          <li>
+            <a class="underline" href="./examples/pure_function.html"
+              >Pure Function</a
+            >
+          </li>
+          <li>
+            <a class="underline" href="./examples/todo.html"
+              >Todo app example from JavaScript: Novice to Ninja</a
+            >
+          </li>
+          <li>
+            <a class="underline" href="./team_activity/index.html"
               >Team Activity</a
             >
           </li>
@@ -106,6 +136,85 @@ In the following example, the sayHello() function refers to an unspecific object
          </li>
          <li>This new function can then be invoked with its own argument, but the values of a and b from the original function are still kept 'alive':</li>
         </ul>
+      </div>
+
+      <div class="container">
+        <h2>Novice to Ninja Ch.13: Ajax</h2>
+        <p>Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically updates web pages without reloading. This enables data to be sent and received in the background, as well as portions of a page to be updated in response to user events, while the rest of the program continues to run.</p>
+        <h3>Same-Origin Policy</h3>
+        <p>The same-origin policy in browsers blocks all requests from a domain that is different from the page making the request. This policy is enforced by all modern browsers and is to stop any malicious JavaScript being run from an external source. The problem is that the APIs of many websites rely on data being transferred across domains.
+
+          Cross-origin resource sharing (CORS) is a solution to this problem as it allows resources to be requested from another website outside the original domain. The CORS standard works by using HTTP headers to indicate which domains can receive data. A website can have the necessary information in its headers to allow external sites access to its API data. Most modern browsers support this method and respect the restrictions specified in the headers.</p>
+        <h3>The Fetch API</h3>
+        <ul>
+          <li>
+            It has since been superseded by the Fetch API, which is currently a living standard for requesting and sending data asynchronously across a network. The Fetch API uses promises to avoid callback hell, and also streamlines a number of concepts that had become cumbersome when using the XMLHttpRequest object.
+          </li>
+         <li>The Fetch API provides a global fetch() method that only has one mandatory argument, which is the URL of the resource you wish to fetch. A very basic example would look something like the following piece of code: <img src="./pics/fetch_API.png" alt="">
+        <br>
+        As you can see, the fetch() method returns a promise that resolves to the response returned from the URL that was provided as an argument. In the example above, the promise will be resolved when a response is received from the URL 'https:example.com/data'. Because it’s a promise, we can also use a catch statement at the end to deal with any errors that may occur.
+        </li>
+        </ul>
+
+        <h3>File Responses</h3>
+        <ul>
+          <li>
+            The blob() method is used to read a file of raw data, such as an image or a spreadsheet. Once it has read the whole file, it returns a promise that resolves with a blob object.
+            Here is an example of how a file response promise would be resolved:
+          </li>
+          <img src="./pics/fetch_API2.png" alt="example of file responses" />
+        </ul>
+        
+        <h4>Creating Response Objects</h4>
+        <ul>
+          <li>Although most of the time you will be dealing with a response object that is returned from a request you make, you can also create your own response objects using a constructor function: <img src="./pics/fetch_API3.png" alt="example of creating response objects">
+          <br>
+          The first argument is the data that is to be returned (for example a text stream, file or JSON data). The second argument is an object that can be used to provide values for any of the properties listed above.
+          These can be useful to use if you are creating an API that needs to send a response, or if you need to send a dummy response for testing purposes.</li>
+        </ul>
+
+        <h4>Request interface</h4>
+        <ul>
+          <li>Request objects are created using the Request() constructor, and include the following properties: <img src="./pics/request_interface.png" alt="example of request interface"></li>
+          <li>
+            Let's take a look at the example below: <img src="./pics/request_interface2.png" alt="example of request interface">
+            <br>
+            The url property is the first argument, and is required. The second argument is an object made up of any of the other properties listed above.
+            Once the Request object is assigned to a variable, it can then be used as the parameter of the fetch() method:
+            <img src="./pics/request_interface3.png" alt="example of request interface">
+            <br>Alternatively, you can enter the URL and object directly as arguments of the fetch() method, without having to create a Request object:
+            <img src="./pics/request_interface4.png" alt="example of request interface">
+          </li>
+        </ul>
+        <h4>Headers Interface</h4>
+        <ul>
+          <li>HTTP headers are used to pass on any additional information about a request or response. Typical information contained in headers includes the file-type of the resource, cookie information, authentication information and when the resource was last modified.
+            The Fetch API introduced a Headers interface, which can be used to create a Headers object, which can then be added as a property of Request and Response objects.
+          <br>
+          A new Headers instance is created using a constructor function, as seen in the example below:
+        <img src="./pics/headers_interface.png" alt="example of headers interface">
+        <br>
+        A Headers object includes the following properties and methods that can be used to access information about the headers, as well as edit the header information.
+        has() – Can be used to check if the headers object contains the header provided as an argument.
+        <br>
+        get() - Returns the value of the header provided as an argument
+        <br>
+        set() – Can be used to set a value of an already existing header, or create a new header with the value provided as an argument if it does not already exist.
+        <br>
+        append() – Adds a new header to the headers object.
+        <br>
+        delete() – Removes the header provided as an argument.
+        <br>
+        keys(), values() and entries() – Iterators that can be used to iterate over the headers key, values or entries (key and value pairs).
+        </li>
+        <li>
+          We can use the Headers, Request and Response objects to put together a typical example that sets up the URL, Request and Headers before calling the fetch() method:
+          <br>
+          <img src="./pics/fetch.PNG" alt="example of how to put all things together before calling the fetch() method ">
+        </li>
+          
+        </ul>
+
       </div>
     </main>
 
