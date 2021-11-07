@@ -1,0 +1,99 @@
+body {
+    max-width: 40rem;
+    margin: 10rem auto;
+    height: 100vh;
+    overflow: hidden;
+
+    background-image: url("star-wars-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    font-family: starWars, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+}
+
+p {
+  margin-top: -1rem;
+  font-size: 1.5rem;
+}
+
+
+/*********** Styling a modal on top of the page***********/
+
+#modal.open {
+    display: block;
+  }
+  
+  #overlay.open {
+    display: block;
+  }
+  
+  #modal {
+    display: none;
+    position: fixed;
+    max-width: 00px;
+    min-width: 500px;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: #fff;
+    border: 1px solid #000;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: #03064d;
+    z-index: 10;
+  }
+  
+  #modal-content{
+    padding-bottom: 0.5rem;
+    text-align: justify;
+    line-height: 1.6;
+  }
+  
+  #modal-content a,
+  #modal-content a:visited {
+    color: #fff;
+  }
+  
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 5;
+  }
+  
+  #close-modal-btn {
+    padding: 10px 0;
+    width: 100px;
+    position: relative;
+    border: #999;
+  }
+  
+  #close-modal-btn:hover {
+    background-color: rgba(66, 85, 248, 0.75);
+    color: #fff;
+  }
+
+.list, .character-detail {
+    display: contents;
+    list-style: none;
+}
+
+.list a {
+    text-decoration: none;
+    color: rgb(95, 4, 4);
+}
+
+.list a:hover {
+    color: darkgoldenrod;
+}
+
+@font-face {
+  font-family: starWars;
+  src: url("Starjedi.ttf")
+}

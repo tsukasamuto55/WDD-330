@@ -141,8 +141,7 @@ header h1 {
 
 .list {
   width: max-content;
-
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 }
 
 .list ul li {
