@@ -31,7 +31,7 @@ body,
 
 .dark-btn,
 .light-btn {
-  position: absolute;
+  position: relative;
   top: 15vh;
   left: 25%;
   transform: translateX(-25%);
