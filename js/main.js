@@ -36,24 +36,25 @@ const linksTwo = [
   {
     label: "Week 08",
     url: "week8/index.html",
-  }
+  },
+  {
+    label: "Week 09",
+    url: "week9/index.html",
+  },
 ];
 
-createLists(blockOneUl, linksOne)
-createLists(blockTwoUl, linksTwo)
-
+createLists(blockOneUl, linksOne);
+createLists(blockTwoUl, linksTwo);
 
 function createLists(ul, links) {
-
   links.forEach((link) => {
-    console.log(ul)
-    console.log(links)
+    console.log(ul);
+    console.log(links);
     const li = document.createElement("li");
     const anchor = document.createElement("a");
     anchor.setAttribute("href", link.url);
     anchor.innerHTML = link.label;
     li.append(anchor);
     ul.append(li);
-  })
+  });
 }
-

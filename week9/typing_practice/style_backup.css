@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+.padding {
+  padding-left: calc(1em + 2px);
+  padding-top: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dark-mode {
+  background: #000;
+  filter: invert(1) hue-rotate(180deg);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #1e0555;
+}
+
+body,
+.quote-input {
+  font-family: "Concert One", cursive;
+}
+
+.dark-btn {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+}
+
+.container {
+  background-color: #f0db4f;
+  padding: 1em;
+  border-radius: 0.5rem;
+  width: 700px;
+  max-width: 90%;
+}
+
+.timer {
+  position: absolute;
+  top: 10rem;
+  font-size: 3rem;
+  color: #f0db4f;
+  font-weight: bold;
+}
+
+.high-score {
+  position: absolute;
+  top: 5rem;
+  color: #f0db4f;
+}
+
+.quote-display {
+  margin-bottom: 1rem;
+  margin-left: calc(1em + 2px);
+  font-size: 2em;
+}
+
+.quote-input {
+  background-color: transparent;
+  border: 2px solid #a1922e;
+  outline: none;
+  width: 100%;
+  height: 8rem;
+  margin: auto;
+  resize: none;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.quote-input:focus {
+  border-color: #000;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+  text-decoration: underline;
+}
