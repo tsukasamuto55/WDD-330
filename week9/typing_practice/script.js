@@ -8,21 +8,21 @@ const timeElapsed = document.querySelector("#time-elapsed");
 const wordCounts = document.querySelector("#word-counts");
 const wordPerMinute = document.querySelector("#word-per-minute");
 // const highScore = document.querySelector(".high-score");
-const html = document.querySelector("html");
-const darkBtn = document.querySelector(".dark-btn");
-const lightBtn = document.querySelector(".light-btn");
+// const html = document.querySelector("html");
+// const darkBtn = document.querySelector(".dark-btn");
+// const lightBtn = document.querySelector(".light-btn");
 
-darkBtn.addEventListener("click", () => {
-  html.classList.add("dark-mode");
-  darkBtn.style.display = "none";
-  lightBtn.style.display = "block";
-});
+// darkBtn.addEventListener("click", () => {
+//   html.classList.add("dark-mode");
+//   darkBtn.style.display = "none";
+//   lightBtn.style.display = "block";
+// });
 
-lightBtn.addEventListener("click", () => {
-  html.classList.remove("dark-mode");
-  darkBtn.style.display = "block";
-  lightBtn.style.display = "none";
-});
+// lightBtn.addEventListener("click", () => {
+//   html.classList.remove("dark-mode");
+//   darkBtn.style.display = "block";
+//   lightBtn.style.display = "none";
+// });
 
 quoteInputElement.addEventListener("input", () => {
   const arrayQuote = quoteDisplayElement.querySelectorAll("span");
