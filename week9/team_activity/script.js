@@ -14,7 +14,6 @@ window.addEventListener("keydown", (e) => {
 });
 
 const keys = document.querySelectorAll(".key");
-
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
 function removeTransition(e) {

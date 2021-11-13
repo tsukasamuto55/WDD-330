@@ -35,10 +35,6 @@ html {
   top: 100px;
 }
 
-.move {
-  transform: translateY(90px);
-}
-
 .playing {
   transform: scale(1.1);
   border-color: #ffc600;
