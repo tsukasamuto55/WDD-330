@@ -1,14 +1,14 @@
 const mail = document.querySelector("#mail");
 
 mail.addEventListener("input", () => {
-  if (email.validity.typeMismatch) {
+  if (mail.validity.typeMismatch) {
     mail.setCustomValidity("Please enter a correct e-mail address!");
     mail.classList.add("invalid");
   } else {
     mail.setCustomValidity("It looks like an email-address :)");
     mail.classList.remove("invalid");
   }
-  if (email.validity.tooShort) {
+  if (mail.validity.tooShort) {
     mail.setCustomValidity("It is too short. Please try again.");
     mail.classList.add("invalid");
   } else {
@@ -54,7 +54,7 @@ function showError() {
     // If the field is empty,
     // display the following error message.
     emailError.textContent = "You need to enter an e-mail address.";
-    emailError.style.color = "red";
+    emailError.style.color = "white";
   } else if (email.validity.typeMismatch) {
     // If the field doesn't contain an email address,
     // display the following error message.

@@ -70,7 +70,7 @@ input:focus:invalid {
 
   box-sizing: border-box;
 
-  animation: fade-in 2s forwards 1s;
+  animation: fade-in 2.5s forwards 1s;
 }
 
 .error.active {
