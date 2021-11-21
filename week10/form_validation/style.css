@@ -1,0 +1,87 @@
+#animal:invalid {
+  border: 2px solid red;
+}
+
+#animal:invalid:required {
+  background-image: linear-gradient(to right, lightblue, lightpink);
+}
+
+#animal:valid {
+  border: 2px solid green;
+}
+
+#fname:invalid,
+#lname:invalid {
+  background: lightpink;
+}
+#fname:valid,
+#lname:valid {
+  background: lightblue;
+}
+
+.invalid {
+  background: rgb(219, 139, 139);
+}
+
+body {
+  font: 1em sans-serif;
+  width: 600px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+p * {
+  display: block;
+}
+
+input[type="email"] {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  box-sizing: border-box;
+}
+
+/* This is our style for the invalid fields */
+input:invalid {
+  border-color: rgb(105, 25, 25);
+  background-color: #fdd;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+/* This is the style of our error messages */
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: rgb(105, 25, 25);
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+
+  animation: fade-in 2s forwards 1s;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
