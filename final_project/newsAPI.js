@@ -34,6 +34,15 @@ function fetchData(URL, keyword) {
         const newsData = data.articles;
         renderNewsArticles(newsData);
       });
+  } else if (language.value == "") {
+    fetch(`${URL}search?q=${keyword.value}&lang=en&token=${token}`)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        const newsData = data.articles;
+        renderNewsArticles(newsData);
+      });
   } else {
     fetch(`${URL}search?q=${keyword.value}&lang=${language.value}&token=${token}`)
       .then(function (response) {
