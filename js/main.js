@@ -45,6 +45,10 @@ const linksTwo = [
     label: "Week 10",
     url: "week10/index.html",
   },
+  {
+    label: "Final Project",
+    url: "final_project/index.html",
+  },
 ];
 
 createLists(blockOneUl, linksOne);
