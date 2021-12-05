@@ -8,28 +8,56 @@
     <link rel="stylesheet" href="style.css" />
     <!-- <script src="main.js" type="module"></script> -->
     <script src="newsAPI.js" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/e5fb0b605c.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
   </head>
   <body>
     <main>
-      <h1>GNews API</h1>
+      <h1 class="title">GNews API</h1>
+
       <form class="search-form" action="#">
-        <label for="keyword"
-          >Keyword:<input type="text" id="keyword" name="keyword" placeholder="Seattle"
-        /></label>
-        <label for="language" class="language">
-          <select name="language" id="language" class="language-option">
-            <option value="">Choose language</option>
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="ja">Japanese</option>
-          </select>
-        </label>
-        <button type="submit" class="search-btn">Search</button>
+        <div class="wrapper">
+          <div class="search-box">
+            <label for="keyword"
+              ><input
+                type="text"
+                id="keyword"
+                class="input-box"
+                name="keyword"
+                placeholder="Search News..."
+            /></label>
+
+            <label for="language">
+              <select name="language" id="language" class="language-option">
+                <option value="">Choose language</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="ja">Japanese</option>
+                <option value="nl">Dutch</option>
+              </select>
+            </label>
+
+            <label for="sortBy">
+              <select name="sortBy" id="sortBy" class="sort-option">
+                <option value="">Sort By</option>
+                <option value="publishedAt">Published Date</option>
+                <option value="relevance">Relevance</option>
+              </select>
+            </label>
+
+            <button type="submit" class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
       </form>
 
       <section class="news-container">
-        <ul id="news-list" class="newsStyles"></ul>
+        <ul id="news-list"></ul>
         <button class="show-more-btn hide">Show More</button>
       </section>
     </main>

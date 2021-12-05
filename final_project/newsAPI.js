@@ -6,6 +6,7 @@ const newsList = document.querySelector("#news-list");
 const keyword = document.querySelector("#keyword");
 const searchForm = document.querySelector(".search-form");
 const language = document.querySelector("#language");
+const sortBy = document.querySelector("#sortBy");
 const showMoreBtn = document.querySelector(".show-more-btn");
 
 window.addEventListener("load", () => {
@@ -26,7 +27,7 @@ searchForm.addEventListener("submit", (e) => {
 
 function fetchData(URL, keyword) {
   if (keyword.value == undefined) {
-    fetch(`${URL}search?q=${keyword}&lang=${language.value}&token=${token}`)
+    fetch(`${URL}search?q=${keyword}&sortby=${sortBy.value}&lang=en&token=${token}`)
       .then(function (response) {
         return response.json();
       })
@@ -35,7 +36,9 @@ function fetchData(URL, keyword) {
         renderNewsArticles(newsData);
       });
   } else if (language.value == "") {
-    fetch(`${URL}search?q=${keyword.value}&lang=en&token=${token}`)
+    fetch(
+      `${URL}search?q=${keyword.value}&sortby=${sortBy.value}&sortby=relevance&lang=en&token=${token}`
+    )
       .then(function (response) {
         return response.json();
       })
@@ -44,7 +47,9 @@ function fetchData(URL, keyword) {
         renderNewsArticles(newsData);
       });
   } else {
-    fetch(`${URL}search?q=${keyword.value}&lang=${language.value}&token=${token}`)
+    fetch(
+      `${URL}search?q=${keyword.value}&sortby=${sortBy.value}&lang=${language.value}&token=${token}`
+    )
       .then(function (response) {
         return response.json();
       })
