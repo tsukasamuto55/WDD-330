@@ -1,43 +1,13 @@
 import writeToLS from "./localStorage.js";
 
 const token = "80786e58dc1c8cb0cc8f96aed97419fd";
-const URL = "https://gnews.io/api/v4/";
 const newsList = document.querySelector("#news-list");
-const keyword = document.querySelector("#keyword");
-const searchForm = document.querySelector(".search-form");
-const language = document.querySelector("#language");
-const sortBy = document.querySelector("#sortBy");
 const showMoreBtn = document.querySelector(".show-more-btn");
 
-window.addEventListener("load", () => {
-  const key = localStorage.getItem("key");
-  if (!key) return;
-
-  fetchData(URL, key);
-});
-
-searchForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  fetchData(URL, keyword);
-
-  writeToLS("key", keyword.value);
-  keyword.value = "";
-  language.value = "";
-});
-
-function fetchData(URL, keyword) {
+export default function fetchData(URL, keyword, sortBy, language) {
   if (keyword.value == undefined) {
-    fetch(`${URL}search?q=${keyword}&sortby=${sortBy.value}&lang=en&token=${token}`)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        const newsData = data.articles;
-        renderNewsArticles(newsData);
-      });
-  } else if (language.value == "") {
     fetch(
-      `${URL}search?q=${keyword.value}&sortby=${sortBy.value}&sortby=relevance&lang=en&token=${token}`
+      `${URL}search?q=${keyword}&sortby=${sortBy.value}&lang=${language.value}&token=${token}`
     )
       .then(function (response) {
         return response.json();
@@ -84,23 +54,32 @@ function renderOneNews(newsData) {
   const newsArticle = document.createElement("li");
   if (newsData.url == undefined) {
     newsArticle.innerHTML = `<div class="news-card">
-    <a href="${newsData.content.url}">
       <img class="news-img" src="${newsData.image}">
-      <h2 class="news-title">${newsData.title}</h2>
-      <div class="news-content">${newsData.content}</div>
-    </a>
-</div>`;
+      <div class="news-article">
+        <div class="news-date">${newsData.publishedAt.slice(0, 10)}</div>
+        <a href="${newsData.content.url}">
+          <h2 class="news-title">${newsData.title}</h2>
+          <div class="news-content">${newsData.content}</div>
+        </a>
+      </div>
+    </div>`;
     return newsArticle;
   } else {
     newsArticle.innerHTML = `<div class="news-card">
-    <a href="${newsData.url}">
       <img class="news-img" src="${newsData.image}">
-      <h2 class="news-title">${newsData.title}</h2>
-      <div class="news-content">${newsData.content}</div>
-    </a>
-</div>`;
+      <div class="news-article">
+        <div class="news-date">${newsData.publishedAt.slice(0, 10)}</div>
+        <a class="news-link" href="${newsData.url}">
+          <h2 class="news-title">${newsData.title}</h2>
+          <div class="news-content">${newsData.content}</div>
+        </a>
+      </div>
+    </div>`;
     return newsArticle;
   }
 }
 
-// export { fetchData };
+export function loadList() {
+  const listString = localStorage.getItem("key");
+  return JSON.parse(listString) || [];
+}
