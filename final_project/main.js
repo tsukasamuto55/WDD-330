@@ -1,11 +1,8 @@
 import writeToLS from "./localStorage.js";
-import fetchData, { loadList } from "./newsAPI.js";
+import fetchData, { URL, keyword, searchForm, loadList, resetValue } from "./newsAPI.js";
 
-const URL = "https://gnews.io/api/v4/";
 let language = document.querySelector("#language");
-const keyword = document.querySelector("#keyword");
 let sortBy = document.querySelector("#sortBy");
-const searchForm = document.querySelector(".search-form");
 
 window.addEventListener("load", () => {
   const key = localStorage.getItem("key");
@@ -15,18 +12,24 @@ window.addEventListener("load", () => {
 });
 
 searchForm.addEventListener("submit", (e) => {
-  const test = {
+  const preference = {
     key: keyword.value,
-    sort: sortBy.value,
-    lang: language.value,
+    lang: language.options[language.selectedIndex].value,
+    sort: sortBy.options[sortBy.selectedIndex].value,
   };
 
   e.preventDefault();
 
   if (keyword.value == "") return;
 
-  fetchData(URL, keyword, (sortBy = "relevance"), (language = "en"));
-  writeToLS("key", JSON.stringify(test));
+  fetchData(
+    URL,
+    keyword,
+    (sortBy.options[sortBy.selectedIndex].value = "relevance"),
+    (language.options[language.selectedIndex].value = "en")
+  );
+  writeToLS("key", JSON.stringify(preference));
   keyword.value = "";
-  // language.value = "";
+  resetValue(language);
+  resetValue(sortBy);
 });
