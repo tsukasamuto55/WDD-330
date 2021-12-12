@@ -53,20 +53,7 @@ function showMoreNews(newsArticles) {
 
 function renderOneNews(newsData) {
   const newsArticle = document.createElement("li");
-  if (newsData.url == undefined) {
-    newsArticle.innerHTML = `<div class="news-card">
-      <img class="news-img" src="${newsData.image}">
-      <div class="news-article">
-        <div class="news-date">${newsData.publishedAt.slice(0, 10)}</div>
-        <a href="${newsData.content.url}">
-          <h2 class="news-title">${newsData.title}</h2>
-          <div class="news-content">${newsData.content}</div>
-        </a>
-      </div>
-    </div>`;
-    return newsArticle;
-  } else {
-    newsArticle.innerHTML = `<div class="news-card">
+  newsArticle.innerHTML = `<div class="news-card">
       <img class="news-img" src="${newsData.image}">
       <div class="news-article">
         <div class="news-date">${newsData.publishedAt.slice(0, 10)}</div>
@@ -76,8 +63,7 @@ function renderOneNews(newsData) {
         </a>
       </div>
     </div>`;
-    return newsArticle;
-  }
+  return newsArticle;
 }
 
 export function loadList() {
@@ -87,4 +73,8 @@ export function loadList() {
 
 export function resetValue(selectOption) {
   selectOption.selectedIndex = 0;
+}
+
+export function optionValue(selectOption) {
+  return selectOption.options[selectOption.selectedIndex].value;
 }
