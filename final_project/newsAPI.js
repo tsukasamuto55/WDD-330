@@ -4,6 +4,7 @@ const showMoreBtn = document.querySelector(".show-more-btn");
 export const URL = "https://gnews.io/api/v4/";
 export const keyword = document.querySelector("#keyword");
 export const searchForm = document.querySelector(".search-form");
+export const errorMessage = document.querySelector(".error");
 
 export default function fetchData(URL, keyword, language, sortBy) {
   if (keyword.value == undefined) {

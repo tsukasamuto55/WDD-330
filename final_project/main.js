@@ -3,6 +3,7 @@ import fetchData, {
   URL,
   keyword,
   searchForm,
+  errorMessage,
   loadList,
   resetValue,
   optionValue,
@@ -24,21 +25,19 @@ searchForm.addEventListener("submit", (e) => {
     lang: optionValue(language),
     sort: optionValue(sortBy),
   };
-
   e.preventDefault();
 
-  if (keyword.value == "") return;
+  if (keyword.value == "" || optionValue(language) == "" || optionValue(sortBy) == "") {
+    errorMessage.classList.remove("hide");
+    return;
+  } else {
+    errorMessage.classList.add("hide");
 
-  // fetchData(
-  //   URL,
-  //   keyword,
-  //   (optionValue(language) = "relevance"),
-  //   (optionValue(sortBy) = "en")
-  // );
-  console.log(optionValue(language), optionValue(sortBy));
+    // fetchData(URL, keyword, optionValue(language), optionValue(sortBy));
+    writeToLS("key", JSON.stringify(preference));
 
-  writeToLS("key", JSON.stringify(preference));
-  keyword.value = "";
-  resetValue(language);
-  resetValue(sortBy);
+    keyword.value = "";
+    resetValue(language);
+    resetValue(sortBy);
+  }
 });
