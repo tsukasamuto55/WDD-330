@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
   const key = localStorage.getItem("key");
   if (!key) return;
 
-  // fetchData(URL, loadList().key, loadList().sort, loadList().lang);
+  fetchData(URL, loadList().key, loadList().sort, loadList().lang);
 });
 
 searchForm.addEventListener("submit", (e) => {
@@ -29,11 +29,16 @@ searchForm.addEventListener("submit", (e) => {
 
   if (keyword.value == "" || optionValue(language) == "" || optionValue(sortBy) == "") {
     errorMessage.classList.remove("hide");
-    return;
+    errorMessage.classList.add("shake");
+    searchForm.classList.add("shake");
+    setTimeout(() => {
+      errorMessage.classList.remove("shake");
+      searchForm.classList.remove("shake");
+    }, 200);
   } else {
     errorMessage.classList.add("hide");
 
-    // fetchData(URL, keyword, optionValue(language), optionValue(sortBy));
+    fetchData(URL, keyword, optionValue(language), optionValue(sortBy));
     writeToLS("key", JSON.stringify(preference));
 
     keyword.value = "";
