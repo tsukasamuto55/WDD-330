@@ -18,7 +18,7 @@ body {
   font-family: "Merriweather", serif;
   background-color: #f8b6cc;
   background-image: linear-gradient(68.4deg, #f8b6cc 0.5%, #c0c6e6 49%, #e1f6f0 99.8%);
-  background-size: 300% 300%;
+  background-size: 425% 425%;
   animation: gradient 25s linear infinite;
   max-width: 60rem;
   height: 100vh;
@@ -43,6 +43,7 @@ main {
   border-radius: 1.8rem;
   margin: auto;
   transform: translate(0, 0);
+  transition: transform 0.2s linear;
 }
 
 .shake {
@@ -51,6 +52,7 @@ main {
 
 .wrapper:hover {
   box-shadow: 0 0 0.5rem 0.2rem #aaa;
+  transform: scale(1.05);
 }
 
 .search-box {
@@ -117,10 +119,15 @@ main {
   margin-bottom: 2em;
   font-size: 1.2rem;
   transition: transform 0.1s ease-in;
+  cursor: pointer;
 }
 
 .show-more-btn:active {
   transform: translate(-50%, 3px);
+}
+
+.show-more-btn:hover {
+  background: rgba(117, 114, 114, 0.4);
 }
 
 #news-list {
@@ -148,6 +155,10 @@ main {
 
 .news-card a {
   text-decoration: none;
+}
+
+.news-content:last-child {
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 600px) {
